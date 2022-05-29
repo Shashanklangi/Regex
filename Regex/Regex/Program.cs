@@ -41,7 +41,6 @@ namespace RegexPattern
             string Password = Console.ReadLine();
             person.Password(Password);
 
-
         }
     }
 }
