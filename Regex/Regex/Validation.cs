@@ -14,6 +14,7 @@ namespace RegexPattern
         public string Email = ("^[A-Za-z]{3,}@[a-z]{3,}.[a-z]{3,}$");
         public string PhoneNumber = ("^[A-Za-z]{3,}@[a-z]{3,}.[a-z]{3,}$");
         public string PassWord = "^[A-Z]{1,}[A-Za-z0-9]{5,}[!@#$%^&*+]{1}[0-9]{1,}$";
+        public string allEmails = ("^[A-Za-z0-9]+([.+_-]?[A-Za-z0-9])*@[A-Za-z0-9]+.([c]{1}[o]{1}[m]{1})*([n]{1}[e]{1}[t]{1})*[,]*([.][a]{1}[u]{1})*([.][c]{1}[o]{1}[m]{1})*$");
 
         public void ValidateFirstName(string firstName)
         {
@@ -49,6 +50,14 @@ namespace RegexPattern
                 Console.WriteLine("Valid Password");
             else
                 Console.WriteLine("Invalid Password");
+        }
+        public void AllEmails(string AllEmails)
+        {
+            Console.WriteLine("Phone_Number: " + AllEmails);
+            if (Regex.IsMatch(AllEmails, allEmails))
+                Console.WriteLine("Valid AllEmails");
+            else
+                Console.WriteLine("Invalid AllEmails");
         }
     }
 }
