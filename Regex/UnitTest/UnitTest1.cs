@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using RegexPattern;
+using RegexException;
 
 namespace UnitTest1
 {
@@ -16,126 +16,136 @@ namespace UnitTest1
         public void Validating_Firstname()
         {
             //Arrange
-            string firstname = "Shashank";
-            person = new Validation();
-
-            //Act
-            string expected = "Shashank";
-            string actual = person.ValidateFirstName(firstname);
-
-            //Assert
-            Assert.AreEqual(expected, actual);
+            string firstname = " ";
+            string expected = "First Name is InValid";
+            try
+            {
+                person.ValidateFirstName(firstname);
+            }
+            catch (CustomException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
         }
         [Test]
         public void Validating_Lastname()
         {
             //Arrange
-            string lastname = "Langi";
-            person = new Validation();
-
-            //Act
-            string expected = "Langi";
-            string actual = person.ValidateLastName(lastname);
-
-            //Assert
-            Assert.AreEqual(expected, actual);
+            string lastname = " ";
+            string expected = "Last Name is InValid";
+            try
+            {
+                person.ValidateLastName(lastname);
+            }
+            catch (CustomException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
         }
         [Test]
-        public void Validating_EmailID()
+        public void Validating_Email()
         {
             //Arrange
-            string Email_ID = "YouGetShashank@gmail.com";
-            person = new Validation();
-
-            //Act
-            string expected = "YouGetShashank@gmail.com";
-            string actual = person.EmailID(Email_ID);
-
-            //Assert
-            Assert.AreEqual(expected, actual);
+            string email = "YougetShashankgmail.com.in";
+            string expected = "Email is InValid";
+            try
+            {
+                person.ValidateEmail(email);
+            }
+            catch (CustomException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
         }
         [Test]
         public void Validating_PhoneNumber()
         {
             //Arrange
-            string phonenumber = "91 1234567890";
-            person = new Validation();
-
-            //Act
-            string expected = "91 1234567890";
-            string actual = person.Phonenumber(phonenumber);
-
-            //Assert
-            Assert.AreEqual(expected, actual);
+            string phonenumber = " 91 1452144";
+            string expected = "PhoneNumber is InValid";
+            try
+            {
+                person.ValidatePhoneNumber(phonenumber);
+            }
+            catch (CustomException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
         }
         [Test]
-        public void Validating_Password()
+        public void Validating_PassWord_Rule_One()
         {
             //Arrange
-            string password = "Shashank@#$1234";
-            person = new Validation();
-
-            //Act
-            string expected = "Shashank@#$1234";
-            string actual = person.Password(password);
-
-            //Assert
-            Assert.AreEqual(expected, actual);
+            string password = "linux";
+            string expected = "Password is InValid";
+            try
+            {
+                person.Validate_Password_RuleOne(password);
+            }
+            catch (CustomException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
         }
         [Test]
-        public void Validating_PasswordRule2()
+        public void Validating_PassWord_Rule_Two()
         {
             //Arrange
-            string password = "Shashank@#$1234";
-            person = new Validation();
-
-            //Act
-            string expected = "Shashank@#$1234";
-            string actual = person.Password(password);
-
-            //Assert
-            Assert.AreEqual(expected, actual);
+            string password = "liNuX";
+            string expected = "Password is InValid";
+            try
+            {
+                person.Validate_Password_RuleTwo(password);
+            }
+            catch (CustomException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
         }
         [Test]
-        public void Validating_PasswordRule3()
+        public void Validating_PassWord_Rule_Three()
         {
             //Arrange
-            string password = "Shashank@#$1234";
-            person = new Validation();
-
-            //Act
-            string expected = "Shashank@#$1234";
-            string actual = person.Password(password);
-
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
-        public void Validating_PasswordRule4()
-        {
-            //Arrange
-            string password = "Shashank@#$1234";
-            person = new Validation();
-
-            //Act
-            string expected = "Shashank@#$1234";
-            string actual = person.Password(password);
-
-            //Assert
-            Assert.AreEqual(expected, actual);
+            string password = "liNuX";
+            string expected = "Password is InValid";
+            try
+            {
+                person.Validate_Password_RuleThree(password);
+            }
+            catch (CustomException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
         }
         [Test]
-        public void Validating_AllEmails()
+        public void Validating_PassWord_Rule_Four()
         {
             //Arrange
-            string Emails = "Shashank@gmail.com.com";
-            person = new Validation();
+            string password = "liNuX";
+            string expected = "Password is InValid";
+            try
+            {
+                person.Validate_Password_RuleFour(password);
+            }
+            catch (CustomException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
 
-            //Act
-            string expected = "Shashank@gmail.com.com";
-            string actual = person.AllEmails(Emails);
-
-            //Assert
-            Assert.AreEqual(expected, actual);
+        }
+        public void Validating_all_emails()
+        {
+            //Arrange
+            string email = "Omakrgmail.in";
+            string expected = "Email is InValid";
+            try
+            {
+                person.Validate_All_Emails(email);
+            }
+            catch (CustomException exception)
+            {
+                Assert.AreEqual(expected, exception.Message);
+            }
         }
     }
 }

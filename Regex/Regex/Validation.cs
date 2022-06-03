@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace RegexPattern
+namespace RegexException
 {
     public class Validation
     {
@@ -13,118 +13,183 @@ namespace RegexPattern
         public string LastName = ("^[A-Z]{1}[A-Za-z]{3,}$");
         public string Email = ("^[A-Za-z]{3,}@[a-z]{3,}.[a-z]{3,}$");
         public string PhoneNumber = ("^[A-Za-z]{3,}@[a-z]{3,}.[a-z]{3,}$");
-        public string PassWord = "^[A-Z]{1,}[A-Za-z0-9]{5,}[!@#$%^&*+]{1}[0-9]{1,}$";
+        public string PassWordRuleOne = ("^[A-z0-9a-z@#&*+]{8,}$");
+        public string PassWordRuleTwo = ("^[A-Z]{1,}[A-z0-9a-z@#&*+]{8,}$");
+        public string PassWordRuleThree = ("^[A-Z]{1,}[0-9A-Za-z!@#$%^&*-]{6,}[0-9]{1,}$");
+        public string PassWordRuleFour = ("^[A-Z]{1,}[A-Za-z0-9]{5,}[!@#$%^&*+]{1}[0-9]{1,}$");
         public string allEmails = ("^[A-Za-z0-9]+([.+_-]?[A-Za-z0-9])*@[A-Za-z0-9]+.([c]{1}[o]{1}[m]{1})*([n]{1}[e]{1}[t]{1})*[,]*([.][a]{1}[u]{1})*([.][c]{1}[o]{1}[m]{1})*$");
 
+        public string ValidateFirstName(string firstNamevalid)
+        {
+            Regex regex = new Regex(FirstName);
+            try
+            {
+                if (regex.IsMatch(firstNamevalid))
+                {
+                    return "FirstName is Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.Exceptiontype.FirstName, "First Name is InValid");
+                }
+            }
+            catch
+            {
+                throw new CustomException(CustomException.Exceptiontype.FirstName, "First Name is InValid");
+            }
+        }
+        public string ValidateLastName(string lastNamevalid)
+        {
+            Regex regex = new Regex(LastName);
+            try
+            {
+                if (regex.IsMatch(lastNamevalid))
+                {
+                    return "LastName is Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.Exceptiontype.LastName, "Last Name is InValid");
+                }
+            }
+            catch
+            {
+                throw new CustomException(CustomException.Exceptiontype.LastName, "Last Name is InValid");
+            }
+        }
+        public string ValidateEmail(string emailvalid)
+        {
+            Regex regex = new Regex(Email);
+            try
+            {
+                if (regex.IsMatch(emailvalid))
+                {
+                    return "Email is Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.Exceptiontype.Email, "Email is InValid");
+                }
+            }
+            catch
+            {
+                throw new CustomException(CustomException.Exceptiontype.Email, "Email is InValid");
+            }
 
-
-        public string ValidateFirstName(string firstName)
-        {
-            if (Regex.IsMatch(firstName, FirstName))
-            {
-                Console.WriteLine("First Name is Valid :" + firstName);
-            }
-            else
-            {
-                Console.WriteLine("First Name is Invalid");
-            }
-            return firstName;
         }
-        public string ValidateLastName(string lastName)
+        public string ValidatePhoneNumber(string phonenumber)
         {
-            if (Regex.IsMatch(lastName, LastName))
+            Regex regex = new Regex(PhoneNumber);
+            try
             {
-                Console.WriteLine("Valid Last Name");
+                if (regex.IsMatch(phonenumber))
+                {
+                    return "PhoneNumber is Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.Exceptiontype.PhoneNumber, "PhoneNumber is InValid");
+                }
             }
-            else
+            catch
             {
-                Console.WriteLine("Invalid Last Name");
+                throw new CustomException(CustomException.Exceptiontype.PhoneNumber, "PhoneNumber is InValid");
             }
-            return lastName;
         }
-        public string EmailID(string Email_ID)
+        public string Validate_Password_RuleOne(string password)
         {
-            if (Regex.IsMatch(Email_ID, Email))
+            Regex regex = new Regex(PassWordRuleOne);
+            try
             {
-                Console.WriteLine("Valid Email_ID");
+                if (regex.IsMatch(PassWordRuleOne))
+                {
+                    return "Password is Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.Exceptiontype.Password, "Password is InValid");
+                }
             }
-            else
+            catch
             {
-                Console.WriteLine("Invalid Email_ID");
+                throw new CustomException(CustomException.Exceptiontype.Password, "Password is InValid");
             }
-            return Email_ID;
         }
-        public string Phonenumber(string Phone_Number)
+        public string Validate_Password_RuleTwo(string passwordTwo)
         {
-            if (Regex.IsMatch(Phone_Number, PhoneNumber))
+            Regex regex = new Regex(PassWordRuleTwo);
+            try
             {
-                Console.WriteLine("Valid Phone_Number");
+                if (regex.IsMatch(PassWordRuleTwo))
+                {
+                    return "Password is Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.Exceptiontype.Password, "Password is InValid");
+                }
             }
-            else
+            catch
             {
-                Console.WriteLine("Invalid Phone_Number");
+                throw new CustomException(CustomException.Exceptiontype.Password, "Password is InValid");
             }
-            return Phone_Number;
         }
-        public string Password(string Password)
+        public string Validate_Password_RuleThree(string passwordThree)
         {
-            if (Regex.IsMatch(Password, PassWord))
+            Regex regex = new Regex(PassWordRuleThree);
+            try
             {
-                Console.WriteLine("Valid Password");
+                if (regex.IsMatch(PassWordRuleThree))
+                {
+                    return "Password is Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.Exceptiontype.Password, "Password is InValid");
+                }
             }
-            else
+            catch
             {
-                Console.WriteLine("Invalid Password");
+                throw new CustomException(CustomException.Exceptiontype.Password, "Password is InValid");
             }
-            return Password;
         }
-        public string PasswordRule2(string Password)
+        public string Validate_Password_RuleFour(string passwordfour)
         {
-            if (Regex.IsMatch(Password, PassWord))
+            Regex regex = new Regex(PassWordRuleFour);
+            try
             {
-                Console.WriteLine("Valid Password");
+                if (regex.IsMatch(PassWordRuleFour))
+                {
+                    return "Password is Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.Exceptiontype.Password, "Password is InValid");
+                }
             }
-            else
+            catch
             {
-                Console.WriteLine("Invalid Password");
+                throw new CustomException(CustomException.Exceptiontype.Password, "Password is InValid");
             }
-            return Password;
         }
-        public string PasswordRule3(string Password)
+        public string Validate_All_Emails(string allemails)
         {
-            if (Regex.IsMatch(Password, PassWord))
+            Regex regex = new Regex(allEmails);
+            try
             {
-                Console.WriteLine("Valid Password");
+                if (regex.IsMatch(allEmails))
+                {
+                    return "Email is Valid";
+                }
+                else
+                {
+                    throw new CustomException(CustomException.Exceptiontype.Email, "Email is InValid");
+                }
             }
-            else
+            catch
             {
-                Console.WriteLine("Invalid Password");
+                throw new CustomException(CustomException.Exceptiontype.Email, "Email is InValid");
             }
-            return Password;
-        }
-        public string PasswordRule4(string Password)
-        {
-            if (Regex.IsMatch(Password, PassWord))
-            {
-                Console.WriteLine("Valid Password");
-            }
-            else
-            {
-                Console.WriteLine("Invalid Password");
-            }
-            return Password;
-        }
-        public string AllEmails(string AllEmails)
-        {
-            if (Regex.IsMatch(AllEmails, allEmails))
-            {
-                Console.WriteLine("Valid AllEmails");
-            }
-            else
-            {
-                Console.WriteLine("Invalid AllEmails");
-            }
-            return AllEmails;
         }
     }
 }

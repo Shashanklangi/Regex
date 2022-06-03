@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-namespace RegexPattern
+namespace RegexException
 {
     public class Program
     {
@@ -18,52 +18,52 @@ namespace RegexPattern
             person.ValidateFirstName(firstName);
 
             //UC2
-            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("-------------------------");
             Console.WriteLine("Enter The Last Name: ");
-            string lastname = Console.ReadLine();
-            person.ValidateLastName(lastname);
+            string lastName = Console.ReadLine();
+            person.ValidateLastName(lastName);
 
             //UC3
-            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("-------------------------");
             Console.WriteLine("Enter The Email_ID: ");
             string EmailID = Console.ReadLine();
-            person.EmailID(EmailID);
+            person.ValidateEmail(EmailID);
 
             //UC4
-            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("-------------------------");
             Console.WriteLine("Enter The Phone_Number: ");
             string Phone_Number = Console.ReadLine();
-            person.Phonenumber(Phone_Number);
+            person.ValidatePhoneNumber(Phone_Number);
 
             //UC5
-            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("-------------------------");
             Console.WriteLine("Enter The Password: ");
-            string Password = Console.ReadLine();
-            person.Password(Password);
+            string password = Console.ReadLine();
+            person.Validate_Password_RuleOne(password);
 
             //UC6
-            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("-------------------------");
             Console.WriteLine("Enter The Password: ");
-            string PasswordRule2 = Console.ReadLine();
-            person.Password(PasswordRule2);
+            string passwordTwo = Console.ReadLine();
+            person.Validate_Password_RuleOne(passwordTwo);
 
             //UC7
-            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("-------------------------");
             Console.WriteLine("Enter The Password: ");
-            string PasswordRule3 = Console.ReadLine();
-            person.Password(PasswordRule3);
+            string passwordThree = Console.ReadLine();
+            person.Validate_Password_RuleOne(passwordThree);
 
             //UC8
-            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("-------------------------");
             Console.WriteLine("Enter The Password: ");
-            string PasswordRule4 = Console.ReadLine();
-            person.Password(PasswordRule4);
+            string passwordFour = Console.ReadLine();
+            person.Validate_Password_RuleOne(passwordFour);
 
             //UC9
-            Console.WriteLine("-----------------------------------");
-            Console.WriteLine("Enter The Email_ID: ");
-            string Emails = Console.ReadLine();
-            person.AllEmails(Emails);
+            Console.WriteLine("-------------------------");
+            Console.WriteLine("Enter The Email ID: ");
+            string allemail = Console.ReadLine();
+            person.Validate_Password_RuleOne(allemail);
         }
     }
 }
