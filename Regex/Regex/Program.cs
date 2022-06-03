@@ -20,8 +20,8 @@ namespace RegexPattern
             //UC2
             Console.WriteLine("-----------------------------------");
             Console.WriteLine("Enter The Last Name: ");
-            string lastName = Console.ReadLine();
-            person.ValidLastName(lastName);
+            string lastname = Console.ReadLine();
+            person.ValidateLastName(lastname);
 
             //UC3
             Console.WriteLine("-----------------------------------");
@@ -35,18 +35,35 @@ namespace RegexPattern
             string Phone_Number = Console.ReadLine();
             person.Phonenumber(Phone_Number);
 
-            //UC8
+            //UC5
             Console.WriteLine("-----------------------------------");
             Console.WriteLine("Enter The Password: ");
             string Password = Console.ReadLine();
             person.Password(Password);
+
+            //UC6
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("Enter The Password: ");
+            string PasswordRule2 = Console.ReadLine();
+            person.Password(PasswordRule2);
+
+            //UC7
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("Enter The Password: ");
+            string PasswordRule3 = Console.ReadLine();
+            person.Password(PasswordRule3);
+
+            //UC8
+            Console.WriteLine("-----------------------------------");
+            Console.WriteLine("Enter The Password: ");
+            string PasswordRule4 = Console.ReadLine();
+            person.Password(PasswordRule4);
 
             //UC9
             Console.WriteLine("-----------------------------------");
             Console.WriteLine("Enter The Email_ID: ");
             string Emails = Console.ReadLine();
             person.AllEmails(Emails);
-
         }
     }
 }
